@@ -798,6 +798,153 @@ df_r19_grouped_states = df_r19_grouped.groupby(["state"]).agg({"total_votes": 's
 df_r19_grouped_states["turnout_ratio"] = round(df_r19_grouped_states.total_votes*100/df_r19_grouped_states.total_electors, 2)
 ```
 
+```python
+# Overall voter turnout_ratio
+print("Overall Turnout ratio")
+print("\t2014 Loksabha Elections:" ,\
+        round(df_r14_grouped.total_votes.sum()*100/df_r14_grouped.total_electors.sum(),2),"%")
+
+print("\t2019 Loksabha Elections:" ,\
+        round(df_r19_grouped.total_votes.sum()*100/df_r19_grouped.total_electors.sum(),2),"%")
+```
+
+    Overall Turnout ratio
+    	2014 Loksabha Elections: 66.06 %
+    	2019 Loksabha Elections: 67.35 %
+    
+
+**Note:** Here, overall turnout ratio in 2014 elections is not reliable because data for 2 states in missing
+
+
+```python
+# No of states/UTs which have lower turnout ratio than overall turnout ratio in 2019
+df_r19_grouped_states[df_r19_grouped_states.turnout_ratio < 67.35].shape[0]
+```
+
+
+
+
+    13
+
+
+
+
+```python
+# list those 13 states/UTs which have lower turnout ratio than overall turnout ratio in 2019
+df_r19_grouped_states[df_r19_grouped_states.turnout_ratio < 67.35].sort_values('turnout_ratio')
+```
+
+
+
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>state</th>
+      <th>total_votes</th>
+      <th>total_electors</th>
+      <th>turnout_ratio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>13</th>
+      <td>Jammu &amp; Kashmir</td>
+      <td>3552622</td>
+      <td>7922538</td>
+      <td>44.84</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Bihar</td>
+      <td>40806661</td>
+      <td>71216290</td>
+      <td>57.30</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>Uttar Pradesh</td>
+      <td>86481398</td>
+      <td>146134603</td>
+      <td>59.18</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>NCT OF Delhi</td>
+      <td>8679012</td>
+      <td>14327649</td>
+      <td>60.58</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Maharashtra</td>
+      <td>54054245</td>
+      <td>88676946</td>
+      <td>60.96</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>Uttarakhand</td>
+      <td>4842925</td>
+      <td>7856318</td>
+      <td>61.64</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>Telangana</td>
+      <td>18642895</td>
+      <td>29708615</td>
+      <td>62.75</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>Mizoram</td>
+      <td>499621</td>
+      <td>792464</td>
+      <td>63.05</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Gujarat</td>
+      <td>29081964</td>
+      <td>45152373</td>
+      <td>64.41</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>Andaman &amp; Nicobar Islands</td>
+      <td>207296</td>
+      <td>318471</td>
+      <td>65.09</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>Punjab</td>
+      <td>13765432</td>
+      <td>20892673</td>
+      <td>65.89</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>Rajasthan</td>
+      <td>32441064</td>
+      <td>48955813</td>
+      <td>66.27</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Jharkhand</td>
+      <td>14961958</td>
+      <td>22404856</td>
+      <td>66.78</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
 # 2. Primary Questions
 
 ### Q 1. List top 5/ bottom 5 constituencies of 2014 and 2019 in terms of voter turnout ratio
