@@ -9,7 +9,7 @@ Imagine yourself as Peter Pandey and perform following tasks.
 2. You can use additional data based on your own research to support your recommendations and provide more insights.
 3. Be creative with your presentation, audio/video presentatio will have more weightage. You will be presenting these insights to the chief editor Bruce Haryali - he appreciates good storytelling and consice presentation.
 --------------------------------------------------------------------------
-## Link to [Video Presentation on LinkedIn]()
+## Link to [Video Presentation on LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7199628072311037956/)
 
 ## Tools used
 1. Environment: Jupyter
